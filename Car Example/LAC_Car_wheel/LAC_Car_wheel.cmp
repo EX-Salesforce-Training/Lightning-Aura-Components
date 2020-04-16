@@ -1,0 +1,25 @@
+<aura:component implements="force:appHostable" >
+    <aura:attribute name="wheel" type="String" default="Firestone" />
+    <aura:attribute name="rim" type="String" default="Standard" />
+    <aura:attribute name="display" type="Boolean" default="true" />
+    <aura:attribute name="display2" type="Boolean" default="false" />
+    <aura:attribute name="tireurl" type="String" default="https://static.summitracing.com/global/images/prod/xlarge/fit-000178_xl.jpg" />
+    <aura:if isTrue="{! v.display }" >        
+        <lightning:card variant="Narrow" title="Selected Tire" iconName="utility:connected_apps" footer="Tire">
+            <p class="slds-p-horizontal_small">
+                <img src="{!v.tireurl}" /> 
+                <lightning:buttonMenu alternativeText="Show menu" onselect="{!c.handleSelect}">
+                    <lightning:menuItem aura:id="menuItems" value="Standard" label="Standard" checked="true" />
+                    <lightning:menuItem aura:id="menuItems" value="Variant" label="Variant" checked="false" />
+                    <lightning:menuItem aura:id="menuItems" value="Upgrade" label="Upgrade" checked="false" />
+                </lightning:buttonMenu>
+                <br/>
+                {!v.wheel}
+        		<br/>
+    			{!v.rim}
+            </p>
+        </lightning:card>
+    </aura:if>
+    <br/>
+    <lightning:button label="Show/Hide Wheel " title="show" onclick="{!c.show}" />
+</aura:component>

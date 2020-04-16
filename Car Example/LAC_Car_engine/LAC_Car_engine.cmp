@@ -1,0 +1,16 @@
+<aura:component >
+    <aura:attribute name="engine" type="String" default="V6" />
+    <aura:attribute name="engineurl" type="String" default="https://upload.wikimedia.org/wikipedia/commons/1/10/IC_engine.JPG" />
+    <aura:attribute name="display" type="Boolean" default="true" />
+    <aura:if isTrue="{!v.display}">
+        <lightning:card variant="Narrow" title="Selected Engine" iconName="utility:connected_apps" footer="Engine">
+            <p class="slds-p-horizontal_small">
+                <img src="{!v.engineurl}" /> 
+                <br/>
+                {!v.engine}
+            </p>
+        </lightning:card>
+    </aura:if>
+    <lightning:button label="Show/Hide Engine " title="show" onclick="{!c.show}" />
+
+</aura:component>
