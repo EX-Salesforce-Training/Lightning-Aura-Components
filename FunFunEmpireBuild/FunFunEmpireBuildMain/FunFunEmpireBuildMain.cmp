@@ -1,0 +1,27 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" controller="FunFunEmpireBuildMainController">
+    <aura:attribute name="name" type="string" default="Bob Bobson's Kingdom"/>
+    <aura:attribute name="kingdom" type="Kingdom__c" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:formattedText value="{!v.kingdom.Name}" /><br />
+    <div class="slds-grid slds-box">
+        <div class="slds-col slds-size_1-of-3 slds-text-align_center">
+    		<strong>People: </strong><lightning:formattedNumber value="{!v.kingdom.People__c}"/>
+        </div>
+    <div class="slds-col slds-size_1-of-3 slds-text-align_center">
+    		<strong>Food: </strong><lightning:formattedNumber value="{!v.kingdom.Food__c}"/>
+        </div>
+    <div class="slds-col slds-size_1-of-3 slds-text-align_center">
+    		<strong>Gold: </strong><lightning:formattedNumber value="{!v.kingdom.Gold__c}"/>
+        </div>
+    </div>
+    <c:FunFunEmpireBuildMainInput value="{!v.kingdom.Land__c}" title="Land" footer="Land available for construction" button="Explore" description="Enter people sent to explore"/>
+    <c:FunFunEmpireBuildMainInput value="{!v.kingdom.Home__c}" title="Homes" footer="One home = 10 people" />
+    <c:FunFunEmpireBuildMainInput value="{!v.kingdom.Farm__c}" title="Farms" footer="One farm = 10 food" />
+    <c:FunFunEmpireBuildMainInput value="{!v.kingdom.Bank__c}" title="Banks" footer="One bank = 10 gold" />
+
+
+
+    
+</aura:component>

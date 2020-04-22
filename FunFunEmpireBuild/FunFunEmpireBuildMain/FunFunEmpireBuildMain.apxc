@@ -1,0 +1,9 @@
+public class FunFunEmpireBuildMainController {
+
+    @auraenabled
+    public static Kingdom__c GetPlayerKingdom(){
+        id playerId = UserInfo.getUserId();
+        Kingdom__c playerKingdom = [SELECT name, people__c, land__c, gold__c, farm__c, bank__c, home__c FROM Kingdom__c WHERE owner.id = :playerId];
+        return playerKingdom;
+    }
+}

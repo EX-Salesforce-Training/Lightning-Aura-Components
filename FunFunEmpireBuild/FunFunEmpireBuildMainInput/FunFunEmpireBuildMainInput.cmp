@@ -1,0 +1,18 @@
+<aura:component >
+    <aura:attribute name="value" type="integer" />
+    <aura:attribute name="button" type="string" default="Build" />
+    <aura:attribute name="footer" type="string" default="" />
+    <aura:attribute name="title" type="string" default="" />
+    <aura:attribute name="description" type="string" default="Build Houses" />
+
+    
+	<lightning:card footer="{!v.footer}" title="{!v.title}">
+        <aura:set attribute="actions">
+            <lightning:button label="{!v.button}"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            <lightning:formattedNumber value="{!v.value}"/><br />
+            <lightning:input type="number" name="input1" label="{!v.description}" />
+        </p>
+    </lightning:card>
+</aura:component>
